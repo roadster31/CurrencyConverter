@@ -93,7 +93,7 @@ class ECBProvider extends BaseProvider implements ProviderInterface
             $code = strtoupper($last["currency"]);
 
             if ($code === $this->to) {
-                $rate = $rateFactor->multiply((string) $last['rate']);
+                $rate = $rateFactor->multiply(new Number((string) $last['rate']));
                 $conversion = $number->multiply($rate);
             }
         }

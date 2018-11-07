@@ -61,7 +61,7 @@ class CurrencyConverterTest extends \PHPUnit_Framework_TestCase
      */
     public function testConvertWithBadProvider()
     {
-        $currencyConverter = new CurrencyConverter($this->getMock('\Thelia\CurrencyConverter\Provider\ProviderInterface'));
+        $currencyConverter = new CurrencyConverter($this->getMockBuilder('\Thelia\CurrencyConverter\Provider\ProviderInterface')->getMock());
         $currencyConverter->from('EUR');
         $currencyConverter->to('USD');
         $currencyConverter->convert(new Number(1));
@@ -134,7 +134,7 @@ class CurrencyConverterTest extends \PHPUnit_Framework_TestCase
 
     public function getProvider()
     {
-        $provider = $this->getMock('\Thelia\CurrencyConverter\Provider\ProviderInterface');
+        $provider = $this->getMockBuilder('\Thelia\CurrencyConverter\Provider\ProviderInterface')->getMock();
 
         $provider->method('convert')
             ->willReturn(new Number(1));
